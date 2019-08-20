@@ -3,11 +3,27 @@
 
   <section id="about">
     <div class="container">
-      <div class="avatar mb-5">
-        <img class="rounded-circle" src="{{ .Site.Params.avatar }}" alt="Responsive image">
+      {{ if .Site.Params.Notice.Headline }}
+      <h2>{{ .Site.Params.Notice.Headline | safeHTML }}</h2>
+      {{ end }}
+      {{ if .Site.Params.Notice.Text }}
+      <p>{{ .Site.Params.Notice.Text | safeHTML }}</p>
+      {{ end }}
+      <div class="logo">
+        <img class="img-circle" src="{{ .Site.BaseURL }}img/{{ .Site.Params.logo }}" alt="{{ .Site.Params.logoAltText }}">
       </div>
+
+      <h3><strong>{{ .Site.Params.Company.Name }}</strong>{{ if .Site.Params.Company.AdditionalName }}<br><strong>{{ .Site.Params.Company.AdditionalName }}</strong>{{ end }}</h3>
+      <p>{{ .Site.Params.Company.Street }}<br>
+      {{ .Site.Params.Company.City }}<br>
+      Telefon: <a href="tel:{{ .Site.Params.Company.TelLink }}">{{ .Site.Params.Company.Tel }}</a><br>
+      Fax: {{ .Site.Params.Company.Fax }}<br>
+      <strong>E-Mail: <a href="mailto:{{ .Site.Params.Company.Mail }}">{{ .Site.Params.Company.Mail }}</a></strong></p>
+      {{ if .Site.Params.Company.Description }}
+      <p>{{ .Site.Params.Company.Description }}</p>
+      {{ end }}
+
       {{ .Content }}
-      {{ partial "social.html" . }}
     </div>
   </section>
 {{ end }}
