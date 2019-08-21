@@ -10,7 +10,7 @@
       <p>{{ .Site.Params.Notice.Text | safeHTML }}</p>
       {{ end }}
       <div class="logo">
-        <img class="img-circle" src="{{ .Site.BaseURL }}img/{{ .Site.Params.logo }}" alt="{{ .Site.Params.logoAltText }}">
+        <img class="img-responsive" src="{{ .Site.BaseURL }}img/{{ .Site.Params.logo }}" alt="{{ .Site.Params.logoAltText }}">
       </div>
 
       <h3><strong>{{ .Site.Params.Company.Name }}</strong>{{ if .Site.Params.Company.AdditionalName }}<br><strong>{{ .Site.Params.Company.AdditionalName }}</strong>{{ end }}</h3>
